@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('createuser.php');
+include('authorize.php');
 ?>
 <html>
 
