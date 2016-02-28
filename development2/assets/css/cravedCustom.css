@@ -13,4 +13,16 @@ background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.5));
     margin-left: 40%;
 }
 
-@media screen-wid
+.custompill{
+    /*
+    background-color: orange;
+    font-size: 20px;
+    color: white;
+    */
+    border: 1px solid #FBC473;
+
+    color: #FBC473;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color: #FBC473;
+}
