@@ -1,22 +1,11 @@
 <?php
 session_start();
 $error='';
-$servername = "localhost";
+$servername = "46.21.173.249";
 $username = "bjorngv155";
 $password = "7gc7e3qn";
 $dbname = "bjorngv155_Craved";
 $con = mysqli_connect($servername,$username,$password,$dbname);
-
-$email = "";
-$user ="";
-$pass = "";
-$pass2 = "";
-$voornaam = "";
-$achternaam = "";
-$telefoon = "";
-$geslacht = "";
-$accepted = "";
-$genderErr = "";
 
 if(isset($_POST['login'])){
 
@@ -36,14 +25,14 @@ $pass = mysqli_real_escape_string($con,$_POST['pass']);
 
 $userlower = strtolower($user);
 
-$sel_user = "select * from users where username='$userlower'";
+$sel_user = "select * from user_logon where user_login_naam='$userlower'";
 
 $run_user = mysqli_query($con, $sel_user);
 
 $check_user = mysqli_num_rows($run_user);
 
 $row = mysqli_fetch_assoc($run_user);
-$hash = $row['password'];
+$hash = $row['user_wachtwoord'];
 $id = $row['user_id'];
 
 $error = $id . " " . $hash;
@@ -52,7 +41,7 @@ $error = $id . " " . $hash;
 	
 if($check_user > 0){
 	
-	if(password_verify ($pass, $hash)) {
+	if(crypt($pass, $hash) == $hash) {
 			$_SESSION["username"]=$user;
 			$_SESSION["user_id"]=$id;
 		
@@ -62,7 +51,7 @@ if($check_user > 0){
 	  }
 }else {
 
-$error = 'Username or Password is invalid!';
+$error = 'Deze fuckign shit werkt niet';
 }
 mysqli_close($con); 
 }
@@ -89,8 +78,8 @@ $accepted = $_POST['accept'];
 	if($accepted == '1'){
 		
 	
-	$check_user = "select username from users where username='$userlower'";
-	$check_email = "select email from users where email='$email'";
+	$check_user = "select * from user_logon where user_login_naam='$userlower'";
+	$check_email = "select * from users where user_email='$email'";
 	
 	$run_user = mysqli_query($con, $check_user);
 	$run_email = mysqli_query($con, $check_email);
@@ -102,9 +91,10 @@ $accepted = $_POST['accept'];
 		
 		if($pass === $pass2){
 			if(eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)){
-				$options = ['cost' => 11,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];
-				$hash = password_hash($pass, PASSWORD_BCRYPT, $options);
-				$insert_user = "insert into users (username, password, voornaam,achternaam, telefoonnummer, geslacht, email) values ('$userlower','$hash','$voornaam','$achternaam','$telefoon','$geslacht','$email')";
+				$encrypted = crypt($pass);
+				$insert_userlogon = "insert into user_logon (user_login_naam, user_wachtwoord) values ('$userlower','$encrypted')";
+				$insert_user = "insert into users (user_voornaam, user_achternaam, user_telefoonnummer, user_geslacht, user_email) values ('$voornaam','$achternaam','$telefoon','$geslacht','$email')";
+				$run_userlogon = mysqli_query($con, $insert_userlogon);
 				$run_user = mysqli_query($con, $insert_user);
 				header("location: login.php");
 			}else{

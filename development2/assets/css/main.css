@@ -853,6 +853,7 @@
 		#thumbnails article {
 			position: relative;
 			width: 50%;
+			background: #101010;
 			outline: 0;
 		}
 
