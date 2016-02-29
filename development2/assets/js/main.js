@@ -436,8 +436,10 @@ var main = (function($) { var _ = {
 								'<div class="slide">' +
 								'<div class="caption"></div>' +
 								'<div class="image"></div>' +
-                                    '<div id="slideMap"class="map"></div>'+
-                                    '<div class="restaurant_img"><img style="margin:500px,0,0,400px; width:800px; height:700px;" src="../css/images/arrow.svg"></img></div>'+
+                                    '<div id="slideMap"class="">googl map</div>'+
+                                    '<div id="restaurant_img">restaurant foto</div>'+
+								'<div id="restaurant_info">restaurant info</div>'+
+								'<div id="slides_varia">varia</div>'+
 								'</div>');
 
 	 					// Image.
