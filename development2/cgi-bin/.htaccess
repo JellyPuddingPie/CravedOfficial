@@ -1,0 +1,4 @@
+Options -Indexes +ExecCGI
+AddHandler cgi-script .cgi .pl
+php_value session.auto_start 1
+session.name = session
