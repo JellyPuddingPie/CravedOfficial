@@ -1,7 +1,7 @@
 <?php
 session_start();
 $error='';
-$servername = "46.21.173.249";
+$servername = "localhost";
 $username = "bjorngv155";
 $password = "7gc7e3qn";
 $dbname = "bjorngv155_Craved";
@@ -25,7 +25,7 @@ $pass = mysqli_real_escape_string($con,$_POST['pass']);
 
 $userlower = strtolower($user);
 
-$sel_user = "select * from user_logon where user_login_naam='$userlower'";
+$sel_user = "select * from users where username='$userlower'";
 
 $run_user = mysqli_query($con, $sel_user);
 
@@ -45,13 +45,13 @@ if($check_user > 0){
 			$_SESSION["username"]=$user;
 			$_SESSION["user_id"]=$id;
 		
-			header("location: encryptionApp.php"); 
+			header("location: index.php");
 	  }else{
 		  $error = 'Username or Password is invalid!';
 	  }
 }else {
 
-$error = 'Deze fuckign shit werkt niet';
+$error = 'Username or Password is invalid!';
 }
 mysqli_close($con); 
 }
