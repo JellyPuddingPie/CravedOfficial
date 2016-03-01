@@ -432,6 +432,7 @@ var main = (function($) { var _ = {
 					// Slide.
 
 						// Create elements.
+
 	 						s.$slide = $('' +
 								'<div class="slide">' +
 								'<div class="caption"></div>' +
