@@ -56,7 +56,7 @@ if($check_user > 0){
 			$_SESSION["username"]=$user;
 			$_SESSION["user_id"]=$id;
 		
-			header("location: index.php"); 
+			header("location: encryptionApp.php"); 
 	  }else{
 		  $error = 'Username or Password is invalid!';
 	  }
