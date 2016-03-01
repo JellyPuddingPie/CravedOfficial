@@ -1070,12 +1070,12 @@
 			-ms-transition: opacity 0.5s ease-in-out;
 			transition: opacity 0.5s ease-in-out;
 			position: absolute;
-			top: 0;
+			top: 5%;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height: 90%;
 			opacity: 1;
-			z-index: 2;
+			z-index: 0;
 		}
 
 			#viewer .slide .caption {
@@ -1101,14 +1101,21 @@
 				-webkit-transition: opacity 0.5s ease-in-out;
 				-ms-transition: opacity 0.5s ease-in-out;
 				transition: opacity 0.5s ease-in-out;
-				position: absolute;
+
 				top: 0;
 				left: 0;
+<<<<<<< HEAD
 				width: 100%;
 				height: 100%;
+=======
+				width: 50%;
+				height: 40%;
+>>>>>>> f35cd0b1da201b52939e8b3e16e6ebbaeba32b56
 				background-repeat: no-repeat;
 				background-size: cover;
 				opacity: 0;
+				float:left;
+
 			}
 
 			#viewer .slide:before {

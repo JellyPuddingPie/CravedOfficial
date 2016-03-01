@@ -432,7 +432,19 @@ var main = (function($) { var _ = {
 					// Slide.
 
 						// Create elements.
+<<<<<<< HEAD
 	 						s.$slide = $('<div class="slide"><div class="caption"></div><div class="image"></div></div>');
+=======
+	 						s.$slide = $('' +
+								'<div class="slide">' +
+								'<div class="caption"></div>' +
+								'<div class="image"></div>' +
+                                    '<div id="slideMap"class="">googl map</div>'+
+                                    '<div id="restaurant_img">restaurant foto</div>'+
+								'<div id="restaurant_info">restaurant info</div>'+
+								'<div id="slides_varia">varia</div>'+
+								'</div>');
+>>>>>>> f35cd0b1da201b52939e8b3e16e6ebbaeba32b56
 
 	 					// Image.
  							s.$slideImage = s.$slide.children('.image');
